@@ -28,3 +28,26 @@ if current_elf > min(maxes):
     maxes.append(current_elf)
 
 print(f"Top calorie carrier: {max(maxes)} (task 1)\nTop three together: {sum(maxes)} (task 2)")
+
+# A second solution, not really better...
+def version2():
+    with open("input1.txt") as file:
+        all = file.readlines()
+
+    # manipulate "everything at once": strip and convert
+    all = list(map(lambda s: s if s == '\n' else int(s.strip()), all))
+
+    # here it gets less satisfying
+    # find line breaks and make a list of lists containing each elf's integers
+    linebreak_indices = [idx for idx, x in enumerate(all) if x == '\n']
+    nestled = []
+    prev = 0
+    for idx in linebreak_indices:
+        nestled.append(all[prev:idx])
+        prev = idx + 1
+
+    nestled.append(all[prev:])
+
+    # sum each elf's calories, sort and we're done
+    totals = sorted(map(sum, nestled))
+    print(f"Task 1: {totals[-1]}\nTask 2: {sum(totals[-3:])}")
