@@ -1,2 +1,9 @@
-# Day 1: Calorie Counting
-Let's dust off the file reading skills! Easy to modify first task to second although I did actually stumble on the second task here, forgetting that the very last row of the file is *empty*, and thus never read in a `for line in handle`-loop. Easily caught, however. 
+# Advent of Code 2022
+Trying to remember stuff I have known before and maybe learn some new stuff. Python only I suspect.
+
+## Day 1: Calorie Counting
+Let's dust off the file reading skills! Easy to modify first task to second although I did actually stumble on the second task here, forgetting that the very last row of the file is *empty*, and thus never read in a `for line in handle`-loop. Easily caught, however.
+
+Wrote a second version that I don't really like better. Stores more at once, and no real time gain.
+
+Also wrote a tiny script to generate a minimal template for each day. Run with `python3 generate_day.py` and answer the first prompt with the day number. Should modify to give a flag to practice reading from stdin honestly. Another time, now I need to stop this procrastination!
