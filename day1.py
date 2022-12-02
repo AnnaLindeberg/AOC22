@@ -18,7 +18,6 @@ with open("input1.txt") as file:
         # no new max: continue with next elf or with counting
         if cal == "":
             current_elf = 0
-            continue
         else:
             current_elf += int(cal)
 
