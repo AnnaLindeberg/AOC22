@@ -18,6 +18,5 @@ I was trying to be a bit clever at first, but the input data is simply not large
 More or less the same here: I have clearer memories from later days in the calender previous years where the trickyness has been higher, so I was already planning ahead thinking of interval graph algorithms while solving the first task in the absolute simplest way possible. Turns out an extra `if-elif`-clause was enough...
 
 ## Day 5: Supply Stacks
-I vaguely suspected the second task from the first one, and modifying the code to slice lists instead of popping and appending is easy enough. Forgot to deepcopy and just copied when solving part 2, as always... Now I'll write something to read the start config, since I just hand-parsed it into list of lists at first.
+I vaguely suspected the second task from the first one, and modifying the code to slice lists instead of popping and appending is easy enough. Forgot to deepcopy and just copied when solving part 2, though... ~~Now I'll write something to read the start config, since I just hand-parsed it into list of lists at first.~~ I've now strangled the first lines of the input file to be read, rather than parsed manually. Why? No idea, I don't even think I learnt anything. Perhaps satisfactory, though.
 
-## Day 5:
