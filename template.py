@@ -4,3 +4,6 @@
 with open("inputXX.txt") as file:
     for row in file:
         pass
+
+print(f"Task 1 {}\nTask 2 {}")
+
