@@ -5,5 +5,5 @@ with open("inputXX.txt") as file:
     for row in file:
         pass
 
-print(f"Task 1 {}\nTask 2 {}")
+print(f"Task 1: {0}\nTask 2: {0}")
 

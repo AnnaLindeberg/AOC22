@@ -22,3 +22,6 @@ I vaguely suspected the second task from the first one, and modifying the code t
 
 ## Day 6: Tuning Trouble
 Shortest one yet? I think so, both in terms of time writing the code and number of rows. I solved checking if a list `lst` of k characters are all unique by `len(set(lst)) == k` which seems kind of too stupid to be smart, but it's as fast as I need (i.e. no waiting time) so why not.
+
+## Day 7: No Space Left On Device
+Nice to do some recursion in python! Parsed the data into nestled dictionaries and was impressed by myself when I wrote it in one go. Then got rather annoyed since the calculation of the sizes  worked for the small given example but not on the real input. Turns out I assumed that all directory names are unique, which wasn't true. Modifying to appending to list was then simple enough, although I'm not sure it's an elegant solution... Anyway, I was happy when part 2 solved with just a few lines of code. Always nice!
