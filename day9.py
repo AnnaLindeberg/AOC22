@@ -24,44 +24,29 @@ def moveTail(head, tail):
     diff = subCoord(head, tail)
     return addCoord(tail, correctStep(diff))
 
-def task1():
-    dirToStep = {'R': Coord(1, 0), 'U': Coord(0, 1), 'L': Coord(-1, 0), 'D': Coord(0, -1)}
-    head = Coord(0, 0)
-    tail = Coord(0, 0)
-    visitedByTail = {Coord(0, 0)}
-    with open("input9.txt") as file:
-        for row in file:
-            direction, steps = row.strip().split()
-            steps = int(steps)
-            for _ in range(steps):
-                # move head
-                head = addCoord(head, dirToStep[direction])
-                # remember where tail has been and then move tail
-                visitedByTail.add(tail)
-                tail = moveTail(head, tail)
-    return len(visitedByTail)
-
-def task2():
+def both(file):
     dirToStep = {'R': Coord(1, 0), 'U': Coord(0, 1), 'L': Coord(-1, 0), 'D': Coord(0, -1)}
     knots = [Coord(0, 0)] * 10
+    visitedBySecond = {Coord(0, 0)}
     visitedByTail = {Coord(0, 0)}
-    with open("input9.txt") as file:
+    with open(file) as file:
         for row in file:
             direction, steps = row.strip().split()
             steps = int(steps)
             for _ in range(steps):
                 knots[0] = addCoord(knots[0], dirToStep[direction])
+                visitedBySecond.add(knots[1])
                 visitedByTail.add(knots[-1])
                 for head, tmp in zip(knots, enumerate(knots[1:], 1)):
                     idx, tail = tmp
                     knots[idx] = moveTail(head, tail)
+    visitedBySecond.add(knots[1])
     visitedByTail.add(knots[-1])
-    return len(visitedByTail)
+    return len(visitedBySecond), len(visitedByTail)
 
 
 def main():
-    t1 = task1()
-    t2 = task2()
+    t1, t2 = both("input9.txt")
     print(f"Task 1: {t1}\nTask 2: {t2}")
 
 
