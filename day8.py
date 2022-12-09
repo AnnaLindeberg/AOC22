@@ -1,4 +1,4 @@
-# Day 8 of Advent of Code 2022:
+# Day 8 of Advent of Code 2022: Treetop Tree House
 # https://adventofcode.com/2022/day/8
 from functools import reduce
 from operator import mul

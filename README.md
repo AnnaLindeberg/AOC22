@@ -1,5 +1,5 @@
 # Advent of Code 2022
-Trying to remember stuff I have known before and maybe learn some new stuff. Python only I suspect.
+Trying to remember stuff I have known before and maybe learn some new stuff. Python only I suspect but weirder stuff have happend (last year I used )
 
 ## Day 1: Calorie Counting
 Let's dust off the file reading skills! Easy to modify first task to second although I did actually stumble on the second task here, forgetting that the very last row of the file is *empty*, and thus never read in a `for line in handle`-loop. Easily caught, however.
@@ -25,3 +25,9 @@ Shortest one yet? I think so, both in terms of time writing the code and number 
 
 ## Day 7: No Space Left On Device
 Nice to do some recursion in python! Parsed the data into nestled dictionaries and was impressed by myself when I wrote it in one go. Then got rather annoyed since the calculation of the sizes  worked for the small given example but not on the real input. Turns out I assumed that all directory names are unique, which wasn't true. Modifying to appending to list was then simple enough, although I'm not sure it's an elegant solution... Anyway, I was happy when part 2 solved with just a few lines of code. Always nice!
+
+## Day 8: Treetop Tree House
+This was not elegantly solved by yours and only and, honestly, I didn't like it. I first kind of solved it as some sort of dynamic programming-matrix sort of thing but made some error and then solved it rather poorly instead. I see some potential for improvement but I guess I won't do anything about it.
+
+## Day 9: Rope bridge
+I sketched possible positions of head when tail should move, marked difference in position and noticed a pattern: take (vector-like) difference `head - tail` and change any appearance of a 2 to a 1, keeping sign. Haven't really proved it works (or even checked all possible positions) but it seems to... work. With it part 2 solves with just a few more lines than part 1 (and you can solve both tasks in parallel).
