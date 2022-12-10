@@ -1,12 +1,12 @@
 # Advent of Code 2022
-Trying to remember stuff I have known before and maybe learn some new stuff. Python only I suspect but weirder stuff have happend (last year I used )
+Trying to remember stuff I have known before and maybe learn some new stuff. Python only I suspect but weirder stuff have happened. I'll give it like 30min a day, so probably only keeping up until mid-december, *as usual*... 
 
 ## Day 1: Calorie Counting
 Let's dust off the file reading skills! Easy to modify first task to second although I did actually stumble on the second task here, forgetting that the very last row of the file is *empty*, and thus never read in a `for line in handle`-loop. Easily caught, however.
 
 Wrote a second version that I don't really like better. Stores more at once, and no real time gain.
 
-Also wrote a tiny script to generate a minimal template for each day. Run with `python3 generate_day.py` and answer the first prompt with the day number. Should modify to give a flag to practice reading from stdin honestly. Another time, now I need to stop this procrastination!
+Also wrote a tiny script to generate a minimal template for each day. Run `generate_day.py` and answer the first prompt with the day number. Should modify to give a flag to practice reading from stdin honestly. Another time, now I need to stop this procrastination!
 
 ## Day 2: Rock Paper Scissors
 Swiftly forward. Wrote it in one go, thought it was very verbose, rewrote it slightly. Might be less readable now, though... A bit interested in looking into how `"RPS"["PSR".index(hand)]` performs in comparison to defining the dict `{'P':'R', 'S':'P','R':'S'}` ("paper wins over rock, scissors wins over paper, ...") and lookup who wins over who in that. Somehow feels less elegant with the dict version, but maybe not...
@@ -31,3 +31,6 @@ This was not elegantly solved by yours and only and, honestly, I didn't like it.
 
 ## Day 9: Rope bridge
 I sketched possible positions of head when tail should move, marked difference in position and noticed a pattern: take (vector-like) difference `head - tail` and change any appearance of a 2 to a 1, keeping sign. Haven't really proved it works (or even checked all possible positions) but it seems to... work. With it part 2 solves with just a few more lines than part 1 (and you can solve both tasks in parallel).
+
+## Day 10: Cathode-Ray Tube
+Honestly, that was just fiddly more than anything, right? I often like these visual problem answers though but this was not that fun either way. You just needed to read very carefully and keep track of different counters. Biggest question: iterate over file or cycles? Did the former on task 1, the latter on task 2. Should rewrite and learn something, maybe? Ah. Nah.  
