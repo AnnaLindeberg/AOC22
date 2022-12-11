@@ -33,4 +33,11 @@ This was not elegantly solved by yours and only and, honestly, I didn't like it.
 I sketched possible positions of head when tail should move, marked difference in position and noticed a pattern: take (vector-like) difference `head - tail` and change any appearance of a 2 to a 1, keeping sign. Haven't really proved it works (or even checked all possible positions) but it seems to... work. With it part 2 solves with just a few more lines than part 1 (and you can solve both tasks in parallel).
 
 ## Day 10: Cathode-Ray Tube
-Honestly, that was just fiddly more than anything, right? I often like these visual problem answers though but this was not that fun either way. You just needed to read very carefully and keep track of different counters. Biggest question: iterate over file or cycles? Did the former on task 1, the latter on task 2. Should rewrite and learn something, maybe? Ah. Nah.  
+Honestly, that was just fiddly more than anything, right? I often like these visual problem answers though but this was not that fun either way. You just needed to read very carefully and keep track of different counters. Biggest question: iterate over file or cycles? Did the former on task 1, the latter on task 2. Should rewrite and learn something, maybe? Ah. Nah.
+
+## Day 11: Monkey in the Middle
+Haha ah... Okay first time I saw any point in writing some classes (and I suppose that was a good idea), but my best guess at task 2 was that the monkeys would throw stuff around at the same time. Then my code would've worked out rather nicely! (or possibly not...) Instead task 2 was more or less: deal with really large integers over many iterations, please. I kept the sizes of the worry-levels of the items in check simply by using modulo the product of the integers used in the checks for each monkey, which I suppose is the bare minimum one needs to do for this to work. One can probably do more, since this still clocks at like 8 seconds. But I can wait 8 seconds, I suppose? 
+
+On another note: terrible to parse! I took some time reading up on `exec` and used it for the operations each monkey does (see method `inspectOne`), which put me on this trail of trying to understand `globals()` and `locals()`. I think I *somehow* get it, but couldn't repeat it for my life. At least I got it to work? Also, don't look at `parseMonkey`. It'll hurt your eyes trying to understand what it's doing.
+
+Lastly: used itertools `islice` to read 6 rows from the file at once, which is just sligthly nicer than reading one line at a time, doing something special every 6th row. 
