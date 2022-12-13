@@ -97,7 +97,7 @@ def main():
         allMonkeys = []
         while True:
             next_6_lines = list(islice(file, 6))
-            file.readline() # one blank
+            file.readline()  # one blank
             if len(next_6_lines) != 6:
                 break
             allMonkeys.append(parseMonkey(next_6_lines))
