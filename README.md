@@ -41,3 +41,8 @@ Haha ah... Okay first time I saw any point in writing some classes (and I suppos
 On another note: terrible to parse! I took some time reading up on `exec` and used it for the operations each monkey does (see method `inspectOne`), which put me on this trail of trying to understand `globals()` and `locals()`. I think I *somehow* get it, but couldn't repeat it for my life. At least I got it to work? Also, don't look at `parseMonkey`. It'll hurt your eyes trying to understand what it's doing.
 
 Lastly: used itertools `islice` to read 6 rows from the file at once, which is just sligthly nicer than reading one line at a time, doing something special every 6th row. 
+
+## Day 12: Hill Climbing Algorithm
+This is just BFS! I thought to myself and then proceeded to write a faulty BFS-function. After staring at it for way too long, I realized I added stuff into the queue more than once, so it truly exploded. I love coding.
+
+For part 2 I've realized I should've started from the top of the mountain, so let's modify this.
