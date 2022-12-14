@@ -2,6 +2,7 @@
 # https://adventofcode.com/2022/day/12
 
 from collections import deque
+import math
 
 class Map:
     def __init__(self, map):
@@ -43,12 +44,8 @@ class Map:
                 continue
 
             newElevation = ord(self.map[newRow][newCol])
-            if chr(newElevation) == 'E':
+            if newElevation == ord('E'):
                 newElevation = ord('z')
-            elif chr(newElevation) == 'c' and chr(elevation) == 'a':
-                continue
-            elif chr(newElevation) == 'c' and newCol < col:
-                continue
 
             if newElevation <= elevation + 1:
                 # non-capital letters are ordered nicely to our purpose
@@ -56,26 +53,22 @@ class Map:
 
         return res
 
-def BFS(heightMap, ):
+def BFS(heightMap):
     q = deque([[heightMap.start, 0]])
-    visited = set()
+    visited = {heightMap.start}
+    best = math.inf
     while q:
         tmp = q.popleft()
         pos, stepCount = tmp
-        visited.add(pos)
-        if heightMap.goal == pos:
-            return stepCount
-
+        if pos == heightMap.goal and stepCount < best:
+            best = stepCount
+            continue
         for n in heightMap.neighbors(pos):
-            if n in visited:
-                continue
-            else:
+            if n not in visited:
+                visited.add(n)
                 q.append([n, stepCount + 1])
 
-    print("never found goal")
-
-
-
+    return best
 
 def main():
     with open("input12.txt") as file:
@@ -83,8 +76,7 @@ def main():
 
     heightMap = Map(list(map(lambda s: s.strip(), all)))
 
-    print(BFS(heightMap))
-    print(f"Task 1: {0}\nTask 2: {0}")
+    print(f"Task 1: {BFS(heightMap)}\nTask 2: {0}")
 
 
 if __name__ == '__main__':
