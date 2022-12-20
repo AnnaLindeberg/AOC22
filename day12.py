@@ -7,15 +7,20 @@ import math
 class Map:
     def __init__(self, map):
         self.map = map
+        self.start = self.find('E')
 
-        # may be overridden for other paths, I suppose
-        self.start = self.__find__('S')
-        self.goal = self.__find__('E')
+    def __getitem__(self, item):
+        x, y = item
+        return self.map[x][y]
 
-    def __find__(self, char):
-        '''
-        Find char in map, top left occurrence if several. Thought to be used to find start and end positions 'S' and 'E'.
-        '''
+    def __setitem__(self, item, new):
+        x, y = item
+        self.map = self.map[:x] + [self.map[x][:y] + new + self.map[x][y + 1:]] + self.map[x + 1:]
+
+    def __str__(self):
+        return "\n".join(self.map)
+
+    def find(self, char):
         for rIdx, row in enumerate(self.map):
             try:
                 cIdx = row.index(char)
@@ -33,8 +38,6 @@ class Map:
         res = []
 
         elevation = ord(self.map[row][col])
-        if chr(elevation) == 'S':
-            elevation = ord('a')
 
         for newRow, newCol in candidates:
             # check new pos within map at all
@@ -44,10 +47,8 @@ class Map:
                 continue
 
             newElevation = ord(self.map[newRow][newCol])
-            if newElevation == ord('E'):
-                newElevation = ord('z')
-
-            if newElevation <= elevation + 1:
+            # allowing stepping down (but we walk upwards...) yeah
+            if newElevation >= elevation - 1:
                 # non-capital letters are ordered nicely to our purpose
                 res.append((newRow, newCol))
 
@@ -56,27 +57,34 @@ class Map:
 def BFS(heightMap):
     q = deque([[heightMap.start, 0]])
     visited = {heightMap.start}
-    best = math.inf
+    pathLengths = {}
     while q:
         tmp = q.popleft()
         pos, stepCount = tmp
-        if pos == heightMap.goal and stepCount < best:
-            best = stepCount
-            continue
+        if heightMap[pos] in ['a', 'S']:
+            pathLengths[pos] = stepCount
         for n in heightMap.neighbors(pos):
             if n not in visited:
+                # print(n, "is an unvisited neighbor of", pos)
                 visited.add(n)
                 q.append([n, stepCount + 1])
 
-    return best
+    return pathLengths
 
 def main():
     with open("input12.txt") as file:
-        all = file.readlines()
+        everything = file.readlines()
 
-    heightMap = Map(list(map(lambda s: s.strip(), all)))
+    heightMap = Map(list(map(lambda s: s.strip(), everything)))
 
-    print(f"Task 1: {BFS(heightMap)}\nTask 2: {0}")
+    sPos = heightMap.find('S')
+    ePos = heightMap.start
+    heightMap[sPos] = 'a'
+    heightMap[ePos] = 'z'
+
+    allDists = BFS(heightMap)
+
+    print(f"Task 1: {allDists[sPos]}\nTask 2: {min(list(allDists.values()))}")
 
 
 if __name__ == '__main__':
