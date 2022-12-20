@@ -46,3 +46,13 @@ Lastly: used itertools `islice` to read 6 rows from the file at once, which is j
 This is just BFS! I thought to myself and then proceeded to write a faulty BFS-function. After staring at it for way too long, I realized I added stuff into the queue more than once, so it truly exploded. I love coding.
 
 For part 2 I've realized I should've started from the top of the mountain, so let's modify this.
+
+... I have now modified it so that both parts are solved at once. Phew!
+
+## Day 13: Distress Signal
+Ehh since I didn't really parse this with anything more than `eval`, this was a pretty straightforward recursion to write. Learnt of the existence of `insort` from `bisect` module for the second part at least!
+
+## Day 14: Regolith Reservoir
+Ahh ok I wrote this code in ten minute chunks over the course of several days so it's really poorly planned and rather poorly executed. Think it is a nice little problem that you can solve just head on (as I did) keeping track of each grain of sand all the time. Works but takes a couple of seconds to run part two. I also had a plan for part two involving counting "top-down" only depending on the input and the row before, kind of like a tertiary tree. Seems like a cool problem to figure out the rules to (but first I'll solve a couple of other days I think...)
+
+## Day 15: Beacon Exclusion Zone
