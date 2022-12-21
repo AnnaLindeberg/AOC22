@@ -56,3 +56,11 @@ Ehh since I didn't really parse this with anything more than `eval`, this was a 
 Ahh ok I wrote this code in ten minute chunks over the course of several days so it's really poorly planned and rather poorly executed. Think it is a nice little problem that you can solve just head on (as I did) keeping track of each grain of sand all the time. Works but takes a couple of seconds to run part two. I also had a plan for part two involving counting "top-down" only depending on the input and the row before, kind of like a tertiary tree. Seems like a cool problem to figure out the rules to (but first I'll solve a couple of other days I think...)
 
 ## Day 15: Beacon Exclusion Zone
+OOkay this got weird and waaay off track. Task 2 was rather obvious from the beginning, but I didn't care and just solved the first part by 
+1. finding all intervals of disallowed positions in the row in question, 
+2. merging intervals (actually forced me to think a bit! Solved with a stack)
+3. removing "bad" points already occupied by sensor/beacon (also a bit tricky since I just wanted to go through the intervals/points once! Might've been overkill here though... Oh well better safe than sorry?)
+4. calculating length of the remaining intervals
+Actually a bit fun, I would say. 
+
+Then, of course, the search space got way too large in task 2. Thing is, reformulating everything we're given a list of coordinates `[(x_1,y_1), ...,(x_n,y_n)]` of scanners and distances `[d_1,...,d_n]` (distance to its closest beacon) and formulating it in maths we're solving the system of inequalities consisting of |x-x_i|+|y-y_i|>d_i for i=1,2,...,n together with 1≤x,y≤4000 000. Apparently there is a unique solution, as given in the problem. I don't know how to solve it, but Mathematica sure does! Since I'm not _that_ skilled (...) I have no clue how to parse shit with wolfram, so I did it in python, then copy-pasted it into the notebook `:)`. Run and conquer? 
