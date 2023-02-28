@@ -64,3 +64,5 @@ OOkay this got weird and waaay off track. Task 2 was rather obvious from the beg
 Actually a bit fun, I would say. 
 
 Then, of course, the search space got way too large in task 2. Thing is, reformulating everything we're given a list of coordinates `[(x_1,y_1), ...,(x_n,y_n)]` of scanners and distances `[d_1,...,d_n]` (distance to its closest beacon) and formulating it in maths we're solving the system of inequalities consisting of |x-x_i|+|y-y_i|>d_i for i=1,2,...,n together with 1≤x,y≤4000 000. Apparently there is a unique solution, as given in the problem. I don't know how to solve it, but Mathematica sure does! Since I'm not _that_ skilled (...) I have no clue how to parse shit with wolfram, so I did it in python, then copy-pasted it into the notebook `:)`. Run and conquer? 
+## Day 16: Proboscidea Volcanium
+## Day 17: Pyroclastic Flow
